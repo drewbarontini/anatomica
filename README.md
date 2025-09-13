@@ -140,7 +140,9 @@ Use comments above lines to capture insights.
   ::MessageListItem.archive()
 ```
 
-## Full Example — Email Client Flow
+## Full Examples
+
+### Email Client Flow
 
 ```
 [Inbox]
@@ -164,6 +166,36 @@ Use comments above lines to capture insights.
   ::Toolbar
     .reply()               => ::NewMessageModal@open
     .archive()             => [Inbox]
+```
+
+### ChatGPT Prompt Input
+
+<img width="819" height="107" alt="CleanShot 2025-09-13 at 12 37 09@2x" src="https://github.com/user-attachments/assets/aeafc507-9f4c-49de-89d7-afe4dabbaaa1" />
+
+```
+::PromptInput
+  ::AddButton
+    .click()                              => ::AddMenu
+
+  @idle
+    ::VoiceModeButton                      # visible in idle; morphs in recording
+      .start()                            => ::PromptInput@recording
+    ::RecordButton
+      .on()                               => ::PromptInput@recording
+
+  @typing
+    ::SubmitButton
+      .click()                            => [Chat]
+    ::VoiceModeButton@hidden
+    ::AcceptButton@hidden
+
+  @recording
+    ::RecordButton
+      .cancel()                           => ::PromptInput@idle
+    ::AddButton@disabled
+    ::SubmitButton@hidden
+    ::AcceptButton                         # VoiceModeButton → AcceptButton
+      .accept()                           => ::PromptInput@typing
 ```
 
 This simple snippet captures:
