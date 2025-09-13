@@ -146,11 +146,8 @@ The annotation maps perfectly to event names in analytics.
 
 ```
 [Inbox]
-  ::MessageList
-    @empty
-    @ready
   ::MessageListItem
-    .open()                => [MessageDetail]
+    .open()
     .archive()
     .markRead()
 
