@@ -4,26 +4,26 @@
 
 ```
 ::PromptInput
-  ::AddButton
+  .AddButton
     .click()                              => ::AddMenu
 
   @idle
-    ::VoiceModeButton                     # visible in idle; morphs in recording
+    ::VoiceModeButton
       .start()                            => ::PromptInput@recording
     ::RecordButton
       .on()                               => ::PromptInput@recording
 
   @typing
-    ::SubmitButton
+    .SubmitButton
       .click()                            => [Chat]
     ::VoiceModeButton@hidden
-    ::AcceptButton@hidden
+    .AcceptButton@hidden
 
   @recording
     ::RecordButton
       .cancel()                           => ::PromptInput@idle
-    ::AddButton@disabled
-    ::SubmitButton@hidden
-    ::AcceptButton                        # VoiceModeButton → AcceptButton
+    .AddButton@disabled
+    .SubmitButton@hidden
+    .AcceptButton                         # VoiceModeButton → AcceptButton
       .accept()                           => ::PromptInput@typing
 ```
