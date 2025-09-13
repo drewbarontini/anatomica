@@ -140,6 +140,26 @@ Use comments above lines to capture insights.
   ::MessageListItem.archive()
 ```
 
+### Events
+
+The annotation maps perfectly to event names in analytics.
+
+```
+[Inbox]
+  ::MessageList
+    @empty
+    @ready
+  ::MessageListItem
+    .open()                => [MessageDetail]
+    .archive()
+    .markRead()
+
+# Events
+inbox.message_list_item.open
+inbox.message_list_item.archive
+inbox.message_list_item.mark_read
+```
+
 ## Full Examples
 
 ### Email Client Flow
