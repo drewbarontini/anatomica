@@ -2,7 +2,7 @@
 
 **Anatomica** is a tiny, text-first notation for describing the anatomy of software products.
 
-It models **Screens, Components, Actions, States, and Flows** so teams can design, discuss, and evolve products before pixels or code. Anatomica is to software what da Vinci’s notebooks were to anatomy: a way to expose structure, motion, and hidden order.
+It models **Screens, Components, Actions, States, and Flows** so teams can design, discuss, and evolve products before pixels or code. Anatomica is to software what Leonardo da Vinci’s notebooks were to anatomy: a way to expose structure, motion, and hidden order.
 
 > **Grammar (one line):**  
 > `[Screen]::Component.SubComponent@state.action() => [dest] | ::Component | .action() | @state`
