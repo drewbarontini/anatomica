@@ -26,7 +26,7 @@ It models **Screens, Components, Actions, States, and Flows** so teams can desig
 .action() => ::Component      # focus/open a component (e.g., modal)
 .action() => .action()        # chain to another action
 .action() => @state           # transition to a state
-// comment                     # commentary above a line
+// comment                    # commentary above a line
 ```
 
 ## Core Concepts
@@ -178,7 +178,7 @@ Use comments above lines to capture insights.
     .click()                              => ::AddMenu
 
   @idle
-    ::VoiceModeButton                      # visible in idle; morphs in recording
+    ::VoiceModeButton                     # visible in idle; morphs in recording
       .start()                            => ::PromptInput@recording
     ::RecordButton
       .on()                               => ::PromptInput@recording
@@ -194,7 +194,7 @@ Use comments above lines to capture insights.
       .cancel()                           => ::PromptInput@idle
     ::AddButton@disabled
     ::SubmitButton@hidden
-    ::AcceptButton                         # VoiceModeButton → AcceptButton
+    ::AcceptButton                        # VoiceModeButton → AcceptButton
       .accept()                           => ::PromptInput@typing
 ```
 
